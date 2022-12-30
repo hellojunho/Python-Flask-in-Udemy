@@ -15,5 +15,8 @@ from prettytable import PrettyTable
 table = PrettyTable()
 table.add_column("Pokemon name", ["Pikachu", "Squirtle", "Charamander"])
 table.add_column("Type", ["Electric", "Water", "Fire"])
+
+# 표 정렬 table.align = "l" or "r" or "c" (left, right, center)
+table.align = "l"
+
 print(table)
-# 148. 5:42까지 들음
