@@ -1,1 +1,1 @@
-another_variable = 0
+another_variable = 300
