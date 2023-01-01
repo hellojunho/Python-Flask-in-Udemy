@@ -84,3 +84,57 @@ if __name__=="__main__":
 ```
 위 코드는 `__name__==__main__`가 참이면 스크립트로 실행될 때만 main()을 실행.  
 내가 아까 위에서 `hello.py`에 추가한 코드랑 똑같음!  
+
+## 플라스크 서버
+플라스크를 사용하여 동작하는 서버는 개발용 서버이므로 상품화하여 배포 금지!  
+*WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.*  
+
+## 일급 객체
+파이썬 함수는 `일급 객체`로 알려져있다.  
+즉, 함수를 인자로 전달할 수 있다는 뜻이다!  
+매개변수를 넘겨줄 떄와 똑같이 취급하면 됨  
+
+[예시]  
+```commandline
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+# First-class objects, can be passed around as arguments e.g. int/string/float etc.
+def calculate(calc_function, n1, n2):
+    return calc_function(n1, n2)
+
+result = calculate(multiply, 2, 3)
+print(result)
+```
+원래대로라면 2 * 3 = 6이 출력됨.
+이유는 함수가 `일급 객체`로 취급되기 때문에 함수를 숫자, 문자열처럼 다른 함수에 전달할 수 있기 때문
+
+## Nested Function (함수 안의 함수)
+`Nested Function`은 함수 안에서 선언한 함수이다.  
+`내부 함수`라고 기억해야겠다.  
+
+[예시]  
+```commandline
+# Nested Functions (함수 안에 함수 선언)
+def outer_function():
+    print("I'm outer")
+    
+    def nested_function():
+        print("I'm inner")
+    
+    return nested_function
+```
+nested_function()은 outer_function()안의 영역에서만 호출이 가능하다.  
+즉, outer_function()밖에서 nested_function()을 입력해도 호출 안됨!  
+별 다른 조건이 없으면 outer_function()을 실행하면 nested_function()도 실행됨.  
+
+outer_function()의 return값이 nested_function인 것과 같이 함수를 return할 수도 있다.  
