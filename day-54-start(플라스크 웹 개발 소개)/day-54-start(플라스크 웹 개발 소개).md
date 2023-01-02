@@ -138,3 +138,33 @@ nested_function()은 outer_function()안의 영역에서만 호출이 가능하�
 별 다른 조건이 없으면 outer_function()을 실행하면 nested_function()도 실행됨.  
 
 outer_function()의 return값이 nested_function인 것과 같이 함수를 return할 수도 있다.  
+
+
+## 파이썬 데코레이터
+`데코레이터 함수`란 플라스크에서 `@app.route()`같은 함수처럼 `@`를 앞에 붙여 사용하는 함수를 말한다.  
+`decorate.py`에서 delay_decorator는 안에 wrapper_function을 감싸고, 그 안에서 function이라는 기능이 2번 실행된다.  
+데코레이터 함수는 wrapper_function을 감싸고 있는 것처럼 함수를 감싸고 있으며, 추가적인 기능을 실행시키는 함수를 뜻한다.  
+
+[예시]  
+```commandline
+import time
+
+# 데코레이터 함수란, 단순히 다른 함수를 감싸 추가 기능을 부여하는 함수
+def delay_decorator(function):
+    def wrapper_function():
+        time.sleep(2)
+        # Do something before
+        function()
+        function()
+        # Do something after
+    return wrapper_function
+# 이제 어떤 함수든 delay_decorator 실행하면 2초 늦게 실행됨
+
+@delay_decorator # 시간 지연을 줄 메소드 앞에 붙여줌
+def say_hello():
+    print("Hello")
+
+say_hello()
+```  
+위의 코드에서 보이는 것과 같이 `@delay_decorator`이 붙은 함수 `say_hello`는 데코레이터 함수로 전달되어 동작한다.  
+출력 결과는 `time.sleep(2)`를 `delay_decorator`에서 사용했지만 2초 뒤에 "Hello"가 출력되는 것을 볼 수 있다.  

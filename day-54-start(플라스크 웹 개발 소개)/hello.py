@@ -10,6 +10,9 @@ print(__name__)         # __main__이 출력됨
 def hello_world():
     return 'Hello World!'
 
-if __name__ == '__main__':
+@app.route("/bye")
+def say_bye():
+    return "Bye"
+
+if __name__ == "__main__":
     app.run()
-ㅉ
