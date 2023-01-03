@@ -1,0 +1,4 @@
+/*index.html의 배경 색을 바꾸는 css파일*/
+body {
+    background-color: red /*purple, blue, ...*/
+}
