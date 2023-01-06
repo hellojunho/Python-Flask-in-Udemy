@@ -20,7 +20,7 @@ def show_post(index):
     for blog_post in post_objects:
         if blog_post.id == index:
             requested_post == blog_post
-    return render_template('post.html', post=requested_post)
+    return render_template('header.html', post=requested_post)
 
 
 if __name__ == "__main__":
