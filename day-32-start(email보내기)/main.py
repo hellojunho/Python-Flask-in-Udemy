@@ -19,9 +19,9 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-me = "내이메일"
-my_password = r"내비밀번호"
-you = "상대이메일"
+me = "junho991026@naver.com"
+my_password = r"jun991026"
+you = "junho991026@naver.com"
 
 msg = MIMEMultipart('alternative')
 msg['Subject'] = "Alert"
