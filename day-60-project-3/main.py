@@ -31,7 +31,7 @@ def contact():
         print(data["email"])
         print(data["phone"])
         print(data["message"])
-        return render_template("contact.html", msg_sent=True)
+        return render_template("success.html", msg_sent=True)
     return render_template("contact.html", msg_sent=False)
 
 
